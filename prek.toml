@@ -1,6 +1,6 @@
 #:schema https://www.schemastore.org/prek.json
 
-minimum_prek_version = "0.4.13"
+minimum_prek_version = "0.4.14"
 
 [[repos]]
 repo = "builtin"
@@ -57,7 +57,7 @@ pass_filenames = false
 [[repos.hooks]]
 id = "shellcheck"
 name = "ShellCheck"
-entry = "just shellcheck"
+entry = "just shell-lint"
 language = "system"
 types = ["shell"]
 pass_filenames = false

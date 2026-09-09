@@ -5,7 +5,7 @@ root_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 bin_dir="${MODERN_BASE_TEMPLATE_TOOL_BIN_DIR:-$root_dir/runtime/tools/bin}"
 shfmt_version="3.13.1"
 shellcheck_version="0.11.0"
-tombi_version="1.4.0"
+tombi_version="1.4.1"
 actionlint_version="1.7.12"
 dprint_version="0.56.1"
 rumdl_version="0.2.60"
@@ -61,10 +61,10 @@ shellcheck_checksum() {
 
 tombi_checksum() {
   case "$1-$2" in
-    linux-amd64) printf 'e2dc1190e0590b1fd0581fa8f85017215ed9b05a4d85c1cf18e0979b6cf24fe1' ;;
-    linux-arm64) printf 'b70750d462954294c354a014bb90399273876b953c21e3a136aafd3d1d41f5e8' ;;
-    darwin-amd64) printf '7016e0028bf0ff122faeb49b0bb248c9d73885ce73b8ada26be6248e207977bc' ;;
-    darwin-arm64) printf '248159d26488f11fe8c36b9239b1ab84abe3533f4a5d8d066e56c091a99ffde1' ;;
+    linux-amd64) printf '9aa69eb3e75a4a22a961b8a1c8cc44e4f81328ce25ad5b10d151be1a09faa88d' ;;
+    linux-arm64) printf '21f51d092597053266e0ed051082743b5956b6de2f0db1cecce78e0eb29165e5' ;;
+    darwin-amd64) printf '4a14a0bf18ec0bbbeab3003f6c0dea3ffabb2cb38649ebfd6cafabc4d7eeffe0' ;;
+    darwin-arm64) printf '0054ea75a98db2ccdef3b304bf97aeb2b1fed201df13b30b68a19672a275199c' ;;
   esac
 }
 

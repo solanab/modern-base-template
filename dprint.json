@@ -10,7 +10,7 @@
     "associations": ["AGENTS.md.template", "**/AGENTS.md.template"],
     "lineWidth": 120,
     "newLineKind": "lf",
-    "textWrap": "maintain",
+    "textWrap": "always",
     "emphasisKind": "asterisks",
     "strongKind": "asterisks",
     "unorderedListKind": "dashes",
