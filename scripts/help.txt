@@ -1,0 +1,40 @@
+modern-base-template development commands
+
+Environment
+  just install              Install pinned formatting and lint tools
+  just install-source-lines Install the pinned private source-lines release
+  just hooks-install        Install optional prek Git hooks
+  just help                 Show this command list
+
+Quality
+  just fmt                  Format shell, TOML, YAML, and Markdown sources
+  just fmt-check            Check all formatting without modifying files
+  just justfile-check       Check justfile syntax and formatting
+  just markdown-format      Format Markdown with dprint
+  just markdown-fmt-check   Check Markdown formatting with dprint
+  just markdown-lint        Lint Markdown with rumdl
+  just shell-fmt            Format scripts/*.sh with shfmt
+  just shell-fmt-check      Check shell formatting without modifying files
+  just shell-lint           Analyze scripts/*.sh with ShellCheck
+  just toml-fmt             Format TOML with Tombi
+  just toml-fmt-check       Check TOML formatting with Tombi
+  just toml-lint            Lint TOML with Tombi
+  just yaml-fmt             Format YAML with yamlfmt
+  just yaml-lint            Check YAML formatting with yamlfmt
+  just lint                 Run Markdown, shell, TOML, and workflow linters
+  just actionlint           Validate GitHub Actions workflows
+  just source-lines         Enforce effective and total line limits
+  just check                Run all local quality gates
+  just hooks-check          Run every prek hook
+
+Named local tasks
+  just bg-start NAME CMD    Start one trusted command in the background
+  just bg-status NAME       Show its PID and state
+  just bg-list              List named tasks
+  just bg-logs NAME         Show recent output
+  just bg-stop NAME         Stop the exact recorded process
+
+Maintenance
+  just clean                Move generated paths to trash
+
+The background helper is a local development convenience, not a production service manager.
