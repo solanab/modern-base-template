@@ -10,7 +10,7 @@ rumdl_bin := tool_bin + "/rumdl"
 actionlint_bin := tool_bin + "/actionlint"
 yamlfmt_bin := tool_bin + "/yamlfmt"
 source_lines_bin := tool_bin + "/source-lines"
-source_lines_version := "0.1.1"
+source_lines_version := "0.2.0"
 
 default: help
 
@@ -103,9 +103,9 @@ source-lines:
 
 check: justfile-check fmt-check lint source-lines
 
-# 后台启动任意本地命令；command 作为受信任的 shell 命令执行
+# Start an arbitrary local command in the background; command runs as a trusted shell command
 
-# 示例: just bg docs './scripts/gen-docs.sh'
+# Example: just bg docs './scripts/gen-docs.sh'
 bg-start name command:
     ./scripts/background.sh start {{ quote(name) }} {{ quote(command) }}
 
