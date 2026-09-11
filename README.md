@@ -9,7 +9,7 @@ It extracts the baseline shared by the `modern-*-template` family:
 - Pinned standalone binaries in `runtime/tools/bin` (no language package manager): `shfmt`, ShellCheck, Tombi,
   `actionlint`, `dprint`, `rumdl`, `yamlfmt`, and `source-lines`, each verified against upstream SHA-256 checksums.
 - One format chain and one lint chain per file type: shfmt + ShellCheck for shell, Tombi for TOML, `yamlfmt` for YAML,
-  dprint + rumdl for Markdown.
+  dprint + rumdl for Markdown (`textWrap: always` at 120 columns).
 - Optional prek Git hooks whose local entries only re-run the same `just` recipes.
 - `source-lines` as the single repository source-size gate.
 - Template discipline: `AGENTS.md` for template maintainers, `AGENTS.md.template` for downstream projects, contracts in

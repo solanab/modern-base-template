@@ -18,7 +18,7 @@
 - Every external tool is a pinned standalone binary under `runtime/tools/bin/`; do not introduce a language package
   manager or global tool installs.
 - Keep one format chain and one lint chain per file type: shfmt + ShellCheck for shell, Tombi for TOML, yamlfmt for
-  YAML, dprint + rumdl for Markdown.
+  YAML, dprint + rumdl for Markdown (`textWrap: always` at 120 columns).
 - When a main language is needed, migrate to the matching `modern-*-template` sibling instead of growing runtime code
   here.
 - Pin third-party GitHub Actions to full commit SHAs with release-tag comments, use explicit runner and tool versions,

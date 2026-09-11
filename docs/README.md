@@ -1,6 +1,7 @@
 # Docs
 
-- [`contracts.md`](./contracts.md) — 当前生效的代码合同（层 1 Stable）与晋升流程。
-- [`backlog.md`](./backlog.md) — 尚未晋升的候选实践。
+- [`contracts.md`](./contracts.md) — currently enabled code contract (layer 1 Stable) and the promotion flow.
+- [`backlog.md`](./backlog.md) — candidate practices not yet promoted.
 
-规则：合同变更必须同步可执行配置（`justfile`、`prek.toml`、CI），并以 `just check` 验证；不能让本文变成第二套规则。
+Rule: contract changes must sync executable configuration (`justfile`, `prek.toml`, CI) and be verified with
+`just check`; these docs must not become a second rule set.
