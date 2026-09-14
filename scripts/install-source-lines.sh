@@ -16,6 +16,7 @@ fail() {
 
 case "$version" in
   0.2.0) installer_checksum="8794c3fd0c1c3d23e61b198e848259fd72d406f314b05c947a8342c15e411fac" ;;
+  0.3.0) installer_checksum="8794c3fd0c1c3d23e61b198e848259fd72d406f314b05c947a8342c15e411fac" ;;
   *) fail "no installer checksum pinned for source-lines $version" ;;
 esac
 

@@ -10,7 +10,7 @@ rumdl_bin := tool_bin + "/rumdl"
 actionlint_bin := tool_bin + "/actionlint"
 yamlfmt_bin := tool_bin + "/yamlfmt"
 source_lines_bin := tool_bin + "/source-lines"
-source_lines_version := "0.2.0"
+source_lines_version := "0.3.0"
 
 default: help
 
