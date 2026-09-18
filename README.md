@@ -33,6 +33,15 @@ docs/       Contracts, backlog, and repository notes
 runtime/    Ignored: installed tools and background-task state
 ```
 
+## GitHub Actions
+
+`just install` fetches `source-lines` from the private `solanab/source-lines` GitHub Release. Local installation reuses
+`gh auth`. CI exchanges `SOURCE_LINES_APP_CLIENT_ID` and `SOURCE_LINES_APP_PRIVATE_KEY` for a short-lived, contents-read
+installation token. A downstream GitHub repository must provide that Actions variable and Actions secret; add the same
+private key as a Dependabot secret when Dependabot-triggered workflows need the tool.
+
+CI `prek-version` must be at least `prek.toml` `minimum_prek_version`.
+
 ## When a main language arrives
 
 Do not grow this template into a polyglot repo. Copy the project into the matching `modern-*-template` sibling and keep
