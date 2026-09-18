@@ -14,6 +14,8 @@ applicable files under `docs/`. Keep the template runnable and keep its document
 
 - Use `just` as the single human-facing task entrypoint.
 - Keep non-trivial orchestration in `scripts/`; keep `justfile` recipes declarative.
+- Local agent workflow: after editing, run `just fix`, review its diff, then run `just check`. `just fix` may modify
+  files; `just check` is read-only and is the CI-safe gate.
 - Run `just check` before claiming a change is complete.
 - Use `just hooks-check` when changing hook configuration; Prek complements but does not replace `just check`.
 - Keep source-lines as the only repository source-size gate.

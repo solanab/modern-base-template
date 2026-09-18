@@ -36,7 +36,7 @@ Enforcement: directory convention, `justfile-check`, `just check`, and review.
 - A file may raise its cap only with an exact-path reason in source-lines.toml; do not pre-relax tests or examples.
 - When adding or renaming a recipe, script, or quality tool, sync `scripts/README.md`, the README, and help text.
 
-Enforcement: `just fmt-check`, `just lint`, `source-lines.toml`, `just check`.
+Enforcement: `just format-check`, `just lint`, `source-lines.toml`, `just check`.
 
 ### S4. Tool supply chain
 

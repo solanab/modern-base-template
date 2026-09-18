@@ -7,8 +7,9 @@ Environment
   just help                 Show this command list
 
 Quality
-  just fmt                  Format shell, TOML, YAML, and Markdown sources
-  just fmt-check            Check all formatting without modifying files
+  just format               Format shell, TOML, YAML, and Markdown sources
+  just format-check         Check all formatting without modifying files
+  just fix                  Apply available fixes, then run linters
   just justfile-check       Check justfile syntax and formatting
   just markdown-format      Format Markdown with dprint
   just markdown-fmt-check   Check Markdown formatting with dprint

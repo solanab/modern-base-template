@@ -19,7 +19,9 @@ It extracts the baseline shared by the `modern-*-template` family:
 
 ```sh
 just install   # downloads pinned tools into runtime/tools/bin
-just check     # runs every local quality gate
+just format    # write formatter changes
+just fix       # format, apply available fixes, then lint
+just check     # run every read-only quality gate
 ```
 
 ## Layout

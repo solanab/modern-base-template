@@ -6,6 +6,8 @@
 - Read `docs/README.md` and `docs/contracts.md` when the repository carries the template engineering docs; keep
   `docs/backlog.md` single-path with any promoted practice.
 - Run `just install` before the first quality command.
+- After editing, run `just fix`, review its diff, then run `just check`; `just fix` may modify files and `just check` is
+  the read-only CI-safe gate.
 - Use `just check` as the required local quality gate.
 - Use `just hooks-check` when changing `prek.toml`; hooks do not replace `just check`.
 - Keep source-lines as the only repository source-size gate.

@@ -17,7 +17,9 @@ default: help
 alias h := help
 alias i := install
 alias l := lint
-alias f := fmt
+alias f := format
+alias fmt := format
+alias fmt-check := format-check
 alias c := check
 alias bg := bg-start
 
@@ -55,9 +57,9 @@ markdown-lint:
 justfile-check:
     just --unstable --fmt --check
 
-fmt: shell-fmt toml-fmt yaml-fmt markdown-format
+format: shell-fmt toml-fmt yaml-fmt markdown-format
 
-fmt-check: shell-fmt-check toml-fmt-check yaml-lint markdown-fmt-check
+format-check: shell-fmt-check toml-fmt-check yaml-lint markdown-fmt-check
 
 shell-fmt:
     test -x {{ quote(shfmt_bin) }} || { echo 'run `just install` first' >&2; exit 1; }
@@ -93,6 +95,8 @@ yaml-lint:
 
 lint: markdown-lint shell-lint toml-lint actionlint
 
+fix: format lint
+
 actionlint:
     test -x {{ quote(actionlint_bin) }} || { echo 'run `just install` first' >&2; exit 1; }
     {{ quote(actionlint_bin) }}
@@ -101,7 +105,7 @@ source-lines:
     test -x {{ quote(source_lines_bin) }} || { echo 'run `just install` first' >&2; exit 1; }
     {{ quote(source_lines_bin) }} --config {{ quote(repo + "/source-lines.toml") }} {{ quote(repo) }}
 
-check: justfile-check fmt-check lint source-lines
+check: justfile-check format-check lint source-lines
 
 # Start an arbitrary local command in the background; command runs as a trusted shell command
 
