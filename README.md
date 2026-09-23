@@ -35,10 +35,9 @@ runtime/    Ignored: installed tools and background-task state
 
 ## GitHub Actions
 
-`just install` fetches `source-lines` from the private `solanab/source-lines` GitHub Release. Local installation reuses
-`gh auth`. CI exchanges `SOURCE_LINES_APP_CLIENT_ID` and `SOURCE_LINES_APP_PRIVATE_KEY` for a short-lived, contents-read
-installation token. A downstream GitHub repository must provide that Actions variable and Actions secret; add the same
-private key as a Dependabot secret when Dependabot-triggered workflows need the tool.
+`just install` downloads the pinned `source-lines` installer from the public
+[`solanab/source-lines-dist`](https://github.com/solanab/source-lines-dist) GitHub Release. Installation needs no
+GitHub App, Actions, or Dependabot credentials; the installer verifies the binary archive checksum and version.
 
 CI `prek-version` must be at least `prek.toml` `minimum_prek_version`.
 
