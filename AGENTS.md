@@ -36,7 +36,7 @@ applicable files under `docs/`. Keep the template runnable and keep its document
 - Keep downstream instructions portable: do not reference maintainer-local paths or assume that sibling repositories
   exist.
 - Pin third-party GitHub Actions to full commit SHAs with release-tag comments, use explicit runner and tool versions,
-  and grant only required permissions.
+  and grant only required permissions. Disable persisted checkout credentials unless a later Git operation needs them.
 - Do not keep parallel Makefile/Taskfile entrypoints.
 - Do not leave obsolete compatibility paths or commented-out implementations.
 - Do not modify, revert, commit, or push unrelated user changes.
