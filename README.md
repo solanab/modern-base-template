@@ -36,8 +36,8 @@ runtime/    Ignored: installed tools and background-task state
 ## GitHub Actions
 
 `just install` downloads the pinned `source-lines` installer from the public
-[`solanab/source-lines-dist`](https://github.com/solanab/source-lines-dist) GitHub Release. Installation needs no
-GitHub App, Actions, or Dependabot credentials; the installer verifies the binary archive checksum and version.
+[`solanab/source-lines-dist`](https://github.com/solanab/source-lines-dist) GitHub Release. Installation needs no GitHub
+App, Actions, or Dependabot credentials; the installer verifies the binary archive checksum and version.
 
 CI `prek-version` must be at least `prek.toml` `minimum_prek_version`.
 

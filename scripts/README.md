@@ -9,7 +9,7 @@ there is no language package manager to lean on; downloaded releases are the sin
 
 | Tool         | Version | Reason                                                 |
 | ------------ | ------- | ------------------------------------------------------ |
-| `shfmt`      | 3.13.1  | Shell formatting for `scripts/*.sh`                    |
+| `shfmt`      | 3.14.1  | Shell formatting for `scripts/*.sh`                    |
 | ShellCheck   | 0.11.0  | Static analysis for `scripts/*.sh`                     |
 | Tombi        | 1.4.1   | TOML formatting, linting, and schema-aware diagnostics |
 | `actionlint` | 1.7.12  | GitHub Actions workflow validation                     |
@@ -20,13 +20,15 @@ there is no language package manager to lean on; downloaded releases are the sin
 The script supports Linux and macOS on amd64 and arm64. Every download uses an upstream SHA-256 checksum and installs
 into ignored `runtime/tools/bin/` paths. `just install` is idempotent.
 
+shfmt uses two-space indentation, indented `case` arms, and binary-operator line breaks (`-i 2 -ci -bn`).
+
 Prek is intentionally installed outside this script because it is an optional Git-hook runner rather than a build
 dependency. Its local hooks only re-run the repository's own `just` recipes, so hook runs and `just check` share one
 implementation.
 
-`install-source-lines.sh` downloads the pinned installer from the public `solanab/source-lines-dist` GitHub Release
-with `curl`; no GitHub credentials are required. The installer checksum is pinned in the consumer script, and the
-release installer verifies the binary archive checksum and version before writing `runtime/tools/bin/source-lines`.
+`install-source-lines.sh` downloads the pinned installer from the public `solanab/source-lines-dist` GitHub Release with
+`curl`; no GitHub credentials are required. The installer checksum is pinned in the consumer script, and the release
+installer verifies the binary archive checksum and version before writing `runtime/tools/bin/source-lines`.
 
 ## `background.sh`
 

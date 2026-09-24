@@ -3,7 +3,7 @@ set -euo pipefail
 
 root_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 bin_dir="${MODERN_BASE_TEMPLATE_TOOL_BIN_DIR:-$root_dir/runtime/tools/bin}"
-shfmt_version="3.13.1"
+shfmt_version="3.14.1"
 shellcheck_version="0.11.0"
 tombi_version="1.4.1"
 actionlint_version="1.7.12"
@@ -43,10 +43,10 @@ architecture_name() {
 
 shfmt_checksum() {
   case "$1-$2" in
-    linux-amd64) printf 'fb096c5d1ac6beabbdbaa2874d025badb03ee07929f0c9ff67563ce8c75398b1' ;;
-    linux-arm64) printf '32d92acaa5cd8abb29fc49dac123dc412442d5713967819d8af2c29f1b3857c7' ;;
-    darwin-amd64) printf '6feedafc72915794163114f512348e2437d080d0047ef8b8fa2ec63b575f12af' ;;
-    darwin-arm64) printf '9680526be4a66ea1ffe988ed08af58e1400fe1e4f4aef5bd88b20bb9b3da33f8' ;;
+    darwin-amd64) printf 'd33eee0da0f92835b3562e9767a05cee7e4eaeef47daa03bfd09da17b4b590a6' ;;
+    darwin-arm64) printf 'b7c872db63553ccffc7253aba3ed7d4885a27d83f1ba567b1138c6315a5847e5' ;;
+    linux-amd64) printf '76e77641faa025814b77f153b29796b8e6fa2fca03e0c76a691608b86c7ea7bf' ;;
+    linux-arm64) printf '5f2db09dae91fca848f7adbdd014632e921a383863a2ad7e0450ad3aba0c6489' ;;
   esac
 }
 

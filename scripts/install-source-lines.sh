@@ -28,10 +28,10 @@ sha256_file() {
   fi
 }
 
-if [[ -x "$binary" ]] &&
-  [[ -f "$receipt" ]] &&
-  [[ "$(<"$receipt")" == "$version" ]] &&
-  [[ "$("$binary" --version 2>/dev/null || true)" == "source-lines $version" ]]; then
+if [[ -x "$binary" ]] \
+  && [[ -f "$receipt" ]] \
+  && [[ "$(<"$receipt")" == "$version" ]] \
+  && [[ "$("$binary" --version 2>/dev/null || true)" == "source-lines $version" ]]; then
   printf 'source-lines %s already installed\n' "$version"
   exit 0
 fi
@@ -45,12 +45,12 @@ trap 'rm -rf -- "$temp_dir"' EXIT
 installer="$temp_dir/install.sh"
 installer_url="https://github.com/solanab/source-lines-dist/releases/download/v${version}/install.sh"
 
-curl --fail --location --silent --show-error --output "$installer" "$installer_url" ||
-  fail "could not fetch public installer for v${version}"
+curl --fail --location --silent --show-error --output "$installer" "$installer_url" \
+  || fail "could not fetch public installer for v${version}"
 
 actual_checksum="$(sha256_file "$installer")"
-[[ "$actual_checksum" == "$installer_checksum" ]] ||
-  fail "installer checksum mismatch for v${version}: expected $installer_checksum, got $actual_checksum"
+[[ "$actual_checksum" == "$installer_checksum" ]] \
+  || fail "installer checksum mismatch for v${version}: expected $installer_checksum, got $actual_checksum"
 
 SOURCE_LINES_INSTALL_DIR="$install_dir" sh "$installer" "$version"
 printf '%s\n' "$version" >"$receipt"
