@@ -29,8 +29,8 @@ Enforcement: directory convention, `justfile-check`, `just check`, and review.
 
 - Shell, TOML, YAML, and Markdown each have one format chain: shfmt for shell; Tombi for TOML; `yamlfmt` for YAML;
   dprint for Markdown format, rumdl for Markdown lint. Markdown `textWrap` is `always` at 120 columns.
-- shfmt 3.14.1 uses two-space indentation, indented `case` arms, and binary-operator line breaks; ShellCheck 0.11.0
-  checks every project shell script.
+- shfmt 3.14.1 reads `.editorconfig` for two-space indentation, indented `case` arms, and binary-operator line breaks;
+  ShellCheck 0.11.0 checks every project shell script.
 - Tombi promotes every warning to an error in `just check`.
 - source-lines is the only repository source-size gate: by default each file stays at or below 300 effective code lines
   and 1000 total lines; total lines include effective code, comment-only lines, and blank lines. 300/1000 is a

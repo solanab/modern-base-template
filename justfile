@@ -63,11 +63,11 @@ format-check: shell-fmt-check toml-fmt-check yaml-lint markdown-fmt-check
 
 shell-fmt:
     test -x {{ quote(shfmt_bin) }} || { echo 'run `just install` first' >&2; exit 1; }
-    {{ quote(shfmt_bin) }} -w -i 2 -ci -bn scripts/*.sh
+    {{ quote(shfmt_bin) }} -w scripts/*.sh
 
 shell-fmt-check:
     test -x {{ quote(shfmt_bin) }} || { echo 'run `just install` first' >&2; exit 1; }
-    output="$({{ quote(shfmt_bin) }} -d -i 2 -ci -bn scripts/*.sh)"; if [[ -n "$output" ]]; then printf '%s\n' "$output"; exit 1; fi
+    output="$({{ quote(shfmt_bin) }} -d scripts/*.sh)"; if [[ -n "$output" ]]; then printf '%s\n' "$output"; exit 1; fi
 
 shell-lint:
     test -x {{ quote(shellcheck_bin) }} || { echo 'run `just install` first' >&2; exit 1; }

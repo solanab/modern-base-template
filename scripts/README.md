@@ -20,7 +20,7 @@ there is no language package manager to lean on; downloaded releases are the sin
 The script supports Linux and macOS on amd64 and arm64. Every download uses an upstream SHA-256 checksum and installs
 into ignored `runtime/tools/bin/` paths. `just install` is idempotent.
 
-shfmt uses two-space indentation, indented `case` arms, and binary-operator line breaks (`-i 2 -ci -bn`).
+shfmt reads `.editorconfig`, which sets two-space indentation, indented `case` arms, and binary-operator line breaks.
 
 Prek is intentionally installed outside this script because it is an optional Git-hook runner rather than a build
 dependency. Its local hooks only re-run the repository's own `just` recipes, so hook runs and `just check` share one
