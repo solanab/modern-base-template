@@ -2,7 +2,7 @@ modern-base-template development commands
 
 Environment
   just install              Install pinned formatting and lint tools
-  just install-source-lines Install the pinned public source-lines release
+  just install-source-lines Install the pinned private source-lines release
   just hooks-install        Install optional prek Git hooks
   just help                 Show this command list
 

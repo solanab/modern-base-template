@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+repository="solanab/source-lines"
 root_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 install_dir="${SOURCE_LINES_INSTALL_DIR:-$root_dir/runtime/tools/bin}"
 requested_version="${1:?usage: install-source-lines.sh VERSION}"
@@ -14,8 +15,7 @@ fail() {
 }
 
 case "$version" in
-  0.2.0) installer_checksum="8794c3fd0c1c3d23e61b198e848259fd72d406f314b05c947a8342c15e411fac" ;;
-  0.3.0) installer_checksum="c114f1b704fd4522dc45b3e72afd8b8d946d86562f644f756888f83c4970dd8c" ;;
+  0.2.0 | 0.3.0) installer_checksum="8794c3fd0c1c3d23e61b198e848259fd72d406f314b05c947a8342c15e411fac" ;;
   *) fail "no installer checksum pinned for source-lines $version" ;;
 esac
 
@@ -36,17 +36,23 @@ if [[ -x "$binary" ]] \
   exit 0
 fi
 
-command -v curl >/dev/null 2>&1 || fail "required command not found: curl"
+command -v gh >/dev/null 2>&1 || fail "required command not found: gh"
 command -v mktemp >/dev/null 2>&1 || fail "required command not found: mktemp"
+
+if [[ -z "${GH_TOKEN:-}" ]]; then
+  GH_TOKEN="$(gh auth token 2>/dev/null)" || fail "GH_TOKEN is required; run gh auth login or provide a CI token"
+  export GH_TOKEN
+fi
 
 temp_root="${TMPDIR:-/tmp}"
 temp_dir="$(mktemp -d "${temp_root%/}/source-lines-consumer.XXXXXX")"
 trap 'rm -rf -- "$temp_dir"' EXIT
 installer="$temp_dir/install.sh"
-installer_url="https://github.com/solanab/source-lines-dist/releases/download/v${version}/install.sh"
 
-curl --fail --location --silent --show-error --output "$installer" "$installer_url" \
-  || fail "could not fetch public installer for v${version}"
+gh api \
+  -H "Accept: application/vnd.github.raw+json" \
+  "repos/${repository}/contents/scripts/install.sh?ref=v${version}" \
+  >"$installer" || fail "could not fetch private installer for v${version}"
 
 actual_checksum="$(sha256_file "$installer")"
 [[ "$actual_checksum" == "$installer_checksum" ]] \

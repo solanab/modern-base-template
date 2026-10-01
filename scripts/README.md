@@ -26,9 +26,9 @@ Prek is intentionally installed outside this script because it is an optional Gi
 dependency. Its local hooks only re-run the repository's own `just` recipes, so hook runs and `just check` share one
 implementation.
 
-`install-source-lines.sh` downloads the pinned installer from the public `solanab/source-lines-dist` GitHub Release with
-`curl`; no GitHub credentials are required. The installer checksum is pinned in the consumer script, and the release
-installer verifies the binary archive checksum and version before writing `runtime/tools/bin/source-lines`.
+`install-source-lines.sh` retrieves the version-pinned installer from private `solanab/source-lines` with `gh`. The
+consumer pins the installer's SHA-256; the installer verifies the private release archive checksum and binary version
+before writing `runtime/tools/bin/source-lines`. Local use requires `gh auth login` with read access or `GH_TOKEN`.
 
 ## `background.sh`
 

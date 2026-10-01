@@ -5,6 +5,9 @@ This repository is the language-neutral baseline of the `modern-*-template` fami
 and source-lines. Downstream projects should copy `AGENTS.md.template` into their own `AGENTS.md` and then add only
 project-specific rules.
 
+The lint coverage and exception policy in [AGENTS.md.template](AGENTS.md.template#lint-coverage-and-exceptions) also
+applies to this template repository.
+
 ## Before editing
 
 Read `README.md`, `justfile`, `scripts/README.md`, the quality-tool configuration, the relevant scripts, and the
@@ -46,4 +49,7 @@ applicable files under `docs/`. Keep the template runnable and keep its document
 
 ### Repo skills
 
-None yet.
+- [base-toolchain-alignment](.agents/skills/base-toolchain-alignment/SKILL.md): adopt or replace the shared quality
+  layer and resolve migration debt.
+- [base-toolchain-governance](.agents/skills/base-toolchain-governance/SKILL.md): inspect or repair drift, upgrade
+  pinned tools, and maintain accepted quality policy.

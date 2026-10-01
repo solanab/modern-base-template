@@ -35,9 +35,10 @@ runtime/    Ignored: installed tools and background-task state
 
 ## GitHub Actions
 
-`just install` downloads the pinned `source-lines` installer from the public
-[`solanab/source-lines-dist`](https://github.com/solanab/source-lines-dist) GitHub Release. Installation needs no GitHub
-App, Actions, or Dependabot credentials; the installer verifies the binary archive checksum and version.
+`just install` retrieves the pinned installer and release assets from the private
+[`solanab/source-lines`](https://github.com/solanab/source-lines) repository. Local installation requires
+`gh auth login` with read access or a `GH_TOKEN`; GitHub Actions uses the repository's read-only source-lines app token.
+The installer checks the installer checksum, binary archive checksum, and version.
 
 CI `prek-version` must be at least `prek.toml` `minimum_prek_version`.
 
