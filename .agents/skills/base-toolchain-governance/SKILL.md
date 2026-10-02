@@ -1,13 +1,16 @@
 ---
 name: base-toolchain-governance
-description: "Use when reviewing or repairing drift in an established language-neutral toolchain, upgrading pinned tools, or maintaining accepted quality rules and exceptions. For baseline adoption or replacement, use base-toolchain-alignment; one-off lint fixes are outside both skills."
+description: "Use when reviewing or repairing drift within an accepted language-neutral toolchain contract, upgrading pinned tools, or maintaining its rules and exceptions. For adopting or fully aligning against the shared baseline, including an existing toolchain, use base-toolchain-alignment; one-off lint fixes are outside both skills."
 ---
 
 # Base Toolchain Governance
 
-Maintain an established quality contract in the current repository. First classify the request as inspection-only or
-authorized repair/upgrade. Inspection-only work uses static, read-only evidence and reports findings without edits or
-mutating commands. When repair or upgrade is authorized, proceed within that scope without redundant approval.
+Maintain an accepted quality contract in the current repository. Use this for drift review or upgrades within that
+contract; when the goal is to align against the shared baseline, use `base-toolchain-alignment` even if tools already
+exist. Derive the review scope from the user's original goal; a local governance request does not imply full-template
+alignment. Classify the request as inspection-only or authorized repair/upgrade. Inspection-only work uses static,
+read-only evidence and reports findings without edits or mutating commands. When repair or upgrade is authorized,
+proceed within that scope without redundant approval.
 
 ## Inspect the accepted contract
 
@@ -17,11 +20,15 @@ Discover tools from real commands, install mechanisms, hooks, and CI; do not ass
 caches. Map each tool and gate to its pin source, platform assets, checksums/provenance, config, command, hook, CI,
 contract, docs, and owner. Record overlapping edits before any authorized repair.
 
-Compare configured behavior with the accepted contract. Configuration shows what runs; it does not establish desired
+Compare configured behavior with the accepted contract and check that all maintained source/file families and actual
+quality tools are covered by the authoritative gate. Configuration shows what runs; it does not establish desired
 policy. Do not describe weakened configuration as compliant by changing documentation. Enabled rules belong in active
 policy and enforcing configuration; backlog candidates stay inactive until explicitly promoted, then leave the backlog.
-Review exceptions for owner, scope, rationale, and evidence. Classify mismatches as existing failures, regressions,
-accepted exceptions, authorized repairs, or missing prerequisites.
+For each exception, verify the paths and rules it actually matches, whether new files and future code inherit it, and
+which errors the retained checks still catch; inspect matcher behavior and use focused counterexamples when needed to
+establish the true boundary. A passing configuration, race, or zero-issue result alone does not establish that the
+exception is justified. Classify mismatches as existing failures, regressions, accepted exceptions, authorized repairs,
+or missing prerequisites.
 
 ## Repair drift or upgrade pinned tools
 
@@ -47,7 +54,10 @@ standalone-tool provenance, pins, platform coverage, and SHA-256 checksums. Do n
 or lockfile solely to satisfy a generic audit workflow. If this repository separately owns runtime dependencies, follow
 its explicit contract for those dependencies.
 
-Report inventory coverage, accepted behavior, findings and contract impact, repairs or upgrade versions, pin/checksum
-consistency, exceptions, and validation. Distinguish prior failures, new regressions, and missing prerequisites.
-Findings-only inspection may complete with findings; remediation is complete only when all required gates pass and
-config, commands, hooks, CI, pins, checksums, docs, and accepted policy agree.
+Reconcile findings and any authorized repairs with the user's goal and the in-scope inventory. Report coverage, accepted
+behavior, contract impact, repairs or upgrade versions, pin/checksum consistency, exceptions, and actual validation
+evidence. Distinguish prior failures, new regressions, unexecuted checks, out-of-scope work, and missing prerequisites.
+State whether read-only review is complete, scoped remediation is complete, or broader alignment remains incomplete.
+Findings-only inspection may complete with findings; remediation is complete only when required gates pass and config,
+commands, hooks, CI, pins, checksums, docs, and accepted policy agree. A handoff retains the original goal and
+unresolved work without implying completion beyond the reviewed scope.

@@ -1,4 +1,4 @@
 interface:
   display_name: "Base Toolchain Alignment"
-  short_description: "Adopt or replace the shared quality toolchain"
-  default_prompt: "Use $base-toolchain-alignment to adopt this repository's shared quality baseline in a target project."
+  short_description: "Align a repository with the shared quality baseline"
+  default_prompt: "Use $base-toolchain-alignment to align a target repository's quality surfaces within the requested scope."

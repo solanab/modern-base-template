@@ -1,4 +1,4 @@
 interface:
   display_name: "Base Toolchain Governance"
   short_description: "Review drift and maintain pinned tool policy"
-  default_prompt: "Use $base-toolchain-governance to inspect this repository's toolchain contract and report drift."
+  default_prompt: "Use $base-toolchain-governance to review drift within this repository's accepted toolchain contract."
